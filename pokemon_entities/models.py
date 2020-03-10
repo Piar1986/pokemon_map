@@ -2,11 +2,11 @@ from django.db import models
 
 class Pokemon(models.Model):
     '''Покемон.'''
-    title_ru = models.CharField('Название на русском языке', max_length=200, null=True)
-    title_en = models.CharField('Название на английском языке', max_length=200, null=True)
-    title_jp = models.CharField('Название на японском языке', max_length=200, null=True)
+    title_ru = models.CharField('Название на русском языке', max_length=200)
+    title_en = models.CharField('Название на английском языке', max_length=200)
+    title_jp = models.CharField('Название на японском языке', max_length=200)
     image = models.ImageField('Картинка')
-    description = models.CharField('Описание', max_length=1000, null=True)
+    description = models.CharField('Описание', max_length=1000)
     previous_evolution = models.ForeignKey('self', verbose_name='Из кого эволюционирует', null=True, blank=True, related_name='next_evolutions', on_delete=models.SET_NULL)
 
     def __str__(self):
