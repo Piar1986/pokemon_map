@@ -1,7 +1,7 @@
 from django.db import models
 
 class Pokemon(models.Model):
-    '''Покемон'''
+    '''Покемон.'''
     title_ru = models.CharField('Название на русском языке', max_length=200, null=True)
     title_en = models.CharField('Название на английском языке', max_length=200, null=True)
     title_jp = models.CharField('Название на японском языке', max_length=200, null=True)
@@ -13,7 +13,7 @@ class Pokemon(models.Model):
         return '{}'.format(self.title_ru)
 
 class PokemonEntity(models.Model):
-    '''Сущности покемона'''
+    '''Сущность покемона.'''
     lat = models.FloatField('Широта')
     lon = models.FloatField('Долгота')
     pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
