@@ -91,9 +91,8 @@ def show_pokemon(request, pokemon_id):
             "img_url": pokemon_previous_evolution_photo_url
             }
     
-    pokemon_next_evolutions_count = pokemon.next_evolutions.all().count()
-    if pokemon_next_evolutions_count:
-        pokemon_next_evolution = pokemon.next_evolutions.all()[0]
+    pokemon_next_evolution = pokemon.next_evolutions.all().first()
+    if pokemon_next_evolution:
         pokemon_next_evolution_photo_url = request.build_absolute_uri(pokemon_next_evolution.image.url)
         pokemon_information['next_evolution'] = {
             "title_ru": pokemon_next_evolution.title_ru,
